@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+source $VIRTUAL_ENV/bin/activate
+exec python3 $VIRTUAL_ENV/app.py

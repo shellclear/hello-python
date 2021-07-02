@@ -1,0 +1,12 @@
+#!/bin/bash -e
+if [[ "$1" == "-h" ]]; then
+	exec /usr/libexec/s2i/usage
+fi
+
+echo "---> Installing application source..."
+cp -Rf /tmp/src/. $VIRTUAL_ENV
+
+echo "---> Building application from source..."
+source $VIRTUAL_ENV/bin/activate
+python3 -m pip install -r $VIRTUAL_ENV/requirements.txt
+chmod +x $VIRTUAL_ENV/*.py
