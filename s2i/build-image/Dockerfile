@@ -1,17 +1,17 @@
-FROM quay.io/shellclear/ubi8:8.4
+FROM quay.io/shellclear/ubi8:8.5-214
 
 LABEL maintainer="Paulo Pacifico <ppacific@redhat.com>"
 
 ENV BUILDER_VERSION 1.0
 
 LABEL Component="Python" \
-      Name="s2i-python39" \
+      Name="s2i-python" \
       Version="3.9" 
 
-LABEL io.k8s.description="A basic Python S2I building image" \
-      io.k8s.display-name="Python 3.9 S2I builder image" \
+LABEL io.k8s.description="A basic Python hello-world app based on S2I building image" \
+      io.k8s.display-name="s2i-python-39" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder, python, python39" \
+      io.openshift.tags="s2i-python:39" \
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 RUN   yum install -y --nodocs --disableplugin=subscription-manager python39 && \
